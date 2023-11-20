@@ -4,38 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeScanActivity">
+    tools:context=".GuidelistActivity">
 
     <TextView
         android:id="@+id/title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan QR Code"
+        android:text="Select your Guide"
         android:textSize="28sp"
         android:textColor="#000000"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp" />
 
-
-    <com.budiyev.android.codescanner.CodeScannerView
-        android:id="@+id/scanner_view"
-        android:layout_width="450dp"
-        android:layout_below="@id/title_text"
+    <ImageView
+        android:id="@+id/imgview"
+        android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:layout_margin="30dp" />
-
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_below="@+id/title_text"
+        android:src="@color/black"
+        android:padding="10dp"/>
 
     <Button
         android:id="@+id/Signupbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/scanner_view"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/custom_button_bg"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         android:padding="10dp"
-        android:text="Scan" />
+        android:text="Continue" />
 
 </RelativeLayout>
