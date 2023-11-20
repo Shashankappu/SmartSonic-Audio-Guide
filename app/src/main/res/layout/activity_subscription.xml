@@ -41,6 +41,6 @@
         android:backgroundTint="@color/black"
         android:textColor="@color/white"
         android:padding="10dp"
-        android:text="Pay" />
+        android:text="Select" />
 
 </RelativeLayout>
