@@ -25,7 +25,7 @@
         android:layout_centerInParent="true"/>
 
     <TextView
-        android:id="@+id/timer"
+        android:id="@+id/timerTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/ganvideo"
@@ -41,7 +41,7 @@
         android:layout_height="600dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/timer"
+        android:layout_below="@id/timerTV"
         app:cardCornerRadius="10dp"
         android:backgroundTint="@color/white"
         android:layout_marginEnd="10dp"
@@ -52,6 +52,7 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:padding="5dp">
+
             <TextView
                 android:id="@+id/res_text"
                 android:layout_width="match_parent"
@@ -64,6 +65,7 @@
                 android:gravity="start"
                 android:hint="Content of the Art will be displayed here this is a dummy text " />
         </ScrollView>
+
         <ImageButton
             android:id="@+id/mic_btn"
             android:layout_width="wrap_content"
@@ -74,11 +76,10 @@
             android:layout_gravity="end"
             android:alpha="0.7"
             android:layout_marginEnd="15dp" />
-
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/Signupbtn"
+        android:id="@+id/backtoscanBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -90,7 +91,7 @@
         android:backgroundTint="@color/black"
         android:textColor="@color/white"
         android:padding="10dp"
-        android:text="Continue" />
+        android:text="Back to Scan" />
 
 
 </RelativeLayout>

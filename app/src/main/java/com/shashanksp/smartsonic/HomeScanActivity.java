@@ -51,7 +51,7 @@ public class HomeScanActivity extends AppCompatActivity {
         scanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeScanActivity.this,SubscriptionActivity.class);
+                Intent i = new Intent(HomeScanActivity.this,GuidelistActivity.class);
                 startActivity(i);
             }
         });
