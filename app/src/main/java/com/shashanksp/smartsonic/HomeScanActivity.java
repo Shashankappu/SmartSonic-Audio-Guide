@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import android.Manifest;
 
@@ -18,13 +20,16 @@ import com.google.zxing.Result;
 
 public class HomeScanActivity extends AppCompatActivity {
     private CodeScanner mCodeScanner;
+    Button scanBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_scan);
         permissionCheck();
+        scanBtn = findViewById(R.id.scanBtn);
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
         mCodeScanner = new CodeScanner(this, scannerView);
+
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
             public void onDecoded(@NonNull final Result result) {
@@ -40,6 +45,14 @@ public class HomeScanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mCodeScanner.startPreview();
+            }
+        });
+
+        scanBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeScanActivity.this,SubscriptionActivity.class);
+                startActivity(i);
             }
         });
     }

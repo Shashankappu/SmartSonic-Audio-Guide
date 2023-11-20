@@ -25,7 +25,7 @@ public class SignInActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SignInActivity.this,HomeScanActivity.class);
+                Intent i = new Intent(SignInActivity.this,OnboardingActivity.class);
                 startActivity(i);
             }
         });
@@ -46,7 +46,6 @@ public class SignInActivity extends AppCompatActivity {
 
                 View radioButton = radio.findViewById(checkedId);
                 int index = radio.indexOfChild(radioButton);
-
 
                 switch (index) {
                     case 0: // first button

@@ -24,9 +24,8 @@
         android:layout_height="450dp"
         android:layout_margin="30dp" />
 
-
     <Button
-        android:id="@+id/Signupbtn"
+        android:id="@+id/scanBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/scanner_view"
