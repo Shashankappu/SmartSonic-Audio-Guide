@@ -20,6 +20,9 @@
         android:theme="@style/Theme.Smartsonic"
         tools:targetApi="31">
         <activity
+            android:name=".EnterContentActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListenActivity"
             android:exported="false" />
         <activity
@@ -33,9 +36,6 @@
             android:exported="false" />
         <activity
             android:name=".HomeScanActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OnboardingActivity"
             android:exported="false" />
         <activity
             android:name=".SignInActivity"

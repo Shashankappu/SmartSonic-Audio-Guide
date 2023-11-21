@@ -43,6 +43,7 @@ public class ListenActivity extends AppCompatActivity {
                     public void run() {
                         if(minutes<0){
                             timerTV.setText("Time up");
+                            t.cancel();
                         } else{
                             timerTV.setText(String.valueOf(minutes)+":"+String.valueOf(seconds)+" mins left");
                             seconds -= 1;
@@ -59,5 +60,6 @@ public class ListenActivity extends AppCompatActivity {
             }
 
         }, 0, 1000);
+
     }
 }

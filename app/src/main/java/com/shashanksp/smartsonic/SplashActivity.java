@@ -12,7 +12,20 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Intent i= new Intent(SplashActivity.this,StartActivity.class);
-        startActivity(i);
+        Thread timerThread = new Thread() {
+            public void run() {
+                try {
+                    sleep(1000);//splash time
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    Intent intent = new Intent(SplashActivity.this, SignInActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        };
+        //start thread
+        timerThread.start();
     }
 }
