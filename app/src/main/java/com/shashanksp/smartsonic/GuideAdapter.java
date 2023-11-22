@@ -6,14 +6,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.GuideViewHolder> {
 
-    private List<String> guideIds;
+    private ArrayList<String> guideIds;
     private OnGuideClickListener onGuideClickListener; // Interface for click events
     private String artId;
-    public GuideAdapter(List<String> guideIds, OnGuideClickListener onGuideClickListener, String artId) {
+    public GuideAdapter(ArrayList<String> guideIds, OnGuideClickListener onGuideClickListener, String artId) {
         this.guideIds = guideIds;
         this.onGuideClickListener = onGuideClickListener;
         this.artId = artId; // Assign the artId
@@ -69,6 +71,6 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.GuideViewHol
 
     // Interface to communicate click events to the activity or fragment
     public interface OnGuideClickListener {
-        void onGuideClick(String ArtID,String guideId);
+        void onGuideClick(String artId,String guideId);
     }
 }

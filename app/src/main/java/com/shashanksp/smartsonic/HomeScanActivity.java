@@ -30,7 +30,7 @@ public class HomeScanActivity extends AppCompatActivity {
     ImageView logoutBtn;
     boolean isGuide;
     private FirebaseAuth mAuth;
-    private String ArtID,GuideID;
+    private String artId,guideId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,7 @@ public class HomeScanActivity extends AppCompatActivity {
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
         mCodeScanner = new CodeScanner(this, scannerView);
         isGuide = getIntent().getBooleanExtra("isGuide",false);
-        GuideID = getIntent().getStringExtra("guideID");
+        guideId = getIntent().getStringExtra("guideId");
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
             public void onDecoded(@NonNull final Result result) {
@@ -51,7 +51,7 @@ public class HomeScanActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(HomeScanActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
-                        ArtID = result.getText();
+                        artId = result.getText();
                     }
                 });
             }
@@ -68,13 +68,13 @@ public class HomeScanActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(isGuide){
                     Intent i = new Intent(HomeScanActivity.this,EnterContentActivity.class);
-                    i.putExtra("guideID",GuideID);
-                    i.putExtra("ArtID",ArtID);
+                    i.putExtra("guideId",guideId);
+                    i.putExtra("artId",artId);
                     startActivity(i);
                     finish();
                 } else {
                     Intent i = new Intent(HomeScanActivity.this, GuidelistActivity.class);
-                    i.putExtra("ArtID",ArtID);
+                    i.putExtra("artId",artId);
                     startActivity(i);
                     finish();
                 }

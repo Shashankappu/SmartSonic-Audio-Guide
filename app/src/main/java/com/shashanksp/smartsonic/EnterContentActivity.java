@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class EnterContentActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
-    private String guideID,ArtID;
+    private String guideId,artId;
     EditText ArtName,details;
     Button submitBtn;
     @Override
@@ -27,16 +27,16 @@ public class EnterContentActivity extends AppCompatActivity {
         details = findViewById(R.id.detailsEdt);
         submitBtn = findViewById(R.id.submitBtn);
 
-        guideID = getIntent().getStringExtra("guideID");
-        ArtID = getIntent().getStringExtra("ArtID");
+        guideId = getIntent().getStringExtra("guideId");
+        artId = getIntent().getStringExtra("artId");
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (guideID.isEmpty() || ArtID.isEmpty() || details.getText().toString().isEmpty()) {
+                if (guideId.isEmpty() || artId.isEmpty() || details.getText().toString().isEmpty()) {
                     // Handle the case where any field is empty
                     Toast.makeText(EnterContentActivity.this,"Enter the details",Toast.LENGTH_LONG).show();
                 }else{
-                    DatabaseReference artReference = databaseReference.child(ArtID).child(guideID);
+                    DatabaseReference artReference = databaseReference.child(artId).child(guideId);
                     artReference.child("Details").setValue(details.getText().toString());
                     Toast.makeText(EnterContentActivity.this,"Details Entered Successfully",Toast.LENGTH_LONG).show();
                     Log.d("Details","sidithu Bhaiyya");
