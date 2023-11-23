@@ -39,7 +39,6 @@ public class EnterContentActivity extends AppCompatActivity {
                     DatabaseReference artReference = databaseReference.child(artId).child(guideId);
                     artReference.child("Details").setValue(details.getText().toString());
                     Toast.makeText(EnterContentActivity.this,"Details Entered Successfully",Toast.LENGTH_LONG).show();
-                    Log.d("Details","sidithu Bhaiyya");
                     Intent i = new Intent(EnterContentActivity.this,HomeScanActivity.class);
                     startActivity(i);
                     finish();

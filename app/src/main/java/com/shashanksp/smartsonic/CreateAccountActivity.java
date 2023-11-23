@@ -41,7 +41,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             Intent intent = new Intent(CreateAccountActivity.this, HomeScanActivity.class);
             if(isGuide){
                 intent.putExtra("isGuide",true);
-                intent.putExtra("guideID",guideIDEdt.getText().toString());
+                intent.putExtra("guideId",guideIDEdt.getText().toString());
             }else{
                 intent.putExtra("isGuide", false);
             }
@@ -124,7 +124,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                             Intent intent = new Intent(CreateAccountActivity.this,HomeScanActivity.class);
                             if(isGuide){
                                 intent.putExtra("isGuide",true);
-                                intent.putExtra("guideID",guideIDEdt.getText().toString());
+                                intent.putExtra("guideId",guideIDEdt.getText().toString());
                             }else {
                                 intent.putExtra("isGuide", false);
                             }

@@ -40,7 +40,7 @@ public class SignInActivity extends AppCompatActivity {
             Intent intent = new Intent(SignInActivity.this, HomeScanActivity.class);
             if(isGuide){
                 intent.putExtra("isGuide",true);
-                intent.putExtra("guideID",guideIDEdt.getText().toString());
+                intent.putExtra("guideId",guideIDEdt.getText().toString());
             }else{
                 intent.putExtra("isGuide", false);
             }
@@ -113,14 +113,15 @@ public class SignInActivity extends AppCompatActivity {
                             SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putBoolean("isLoggedIn", true);
-                            editor.apply();
+
                             Intent intent = new Intent(SignInActivity.this, HomeScanActivity.class);
                             if(isGuide){
                                 intent.putExtra("isGuide",true);
-                                intent.putExtra("guideID",guideIDEdt.getText().toString());
+                                intent.putExtra("guideId",guideIDEdt.getText().toString());
                             }else {
                                 intent.putExtra("isGuide", false);
                             }
+                            editor.apply();
                             startActivity(intent);
                             finish();
 
