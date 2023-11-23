@@ -34,7 +34,7 @@ public class EnterContentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (guideId.isEmpty() || artId.isEmpty() || details.getText().toString().isEmpty()) {
                     // Handle the case where any field is empty
-                    Toast.makeText(EnterContentActivity.this,"Enter the details",Toast.LENGTH_LONG).show();
+                    Toast.makeText(EnterContentActivity.this,"Enter the details"+guideId+artId+details,Toast.LENGTH_LONG).show();
                 }else{
                     DatabaseReference artReference = databaseReference.child(artId).child(guideId);
                     artReference.child("Details").setValue(details.getText().toString());

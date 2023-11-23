@@ -25,24 +25,32 @@ public class SignInActivity extends AppCompatActivity {
     Button loginbtn;
     TextView signupbtn;
     EditText guideIDEdt;
+    String guideId;
     private FirebaseAuth mAuth;
     EditText emailEdt;
     boolean isGuide;
     EditText pwdEdt;
+    private static final String PREF_GUIDE_ID = "guideId";
+    private static final String PREF_IS_GUIDE = "isGuide";
     @Override
     protected void onStart() {
         super.onStart();
         // Check if the user is already logged in
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        guideId = getIntent().getStringExtra("guideId");
+        isGuide = getIntent().getBooleanExtra("isGuide", false);
+        // Save guideId and isGuide to SharedPreferences
+//        guideId = getGuideIdFromPrefs();
+//        isGuide = getIsGuideFromPrefs();
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
         if (isLoggedIn) {
             // User is logged in, start the HomeActivity and finish LoginActivity
             Intent intent = new Intent(SignInActivity.this, HomeScanActivity.class);
             if(isGuide){
-                intent.putExtra("isGuide",true);
-                intent.putExtra("guideId",guideIDEdt.getText().toString());
+                saveGuideIdToPrefs(guideId);
+                saveIsGuideToPrefs(isGuide);
             }else{
-                intent.putExtra("isGuide", false);
+                saveIsGuideToPrefs(false);
             }
             startActivity(intent);
             finish();
@@ -118,8 +126,11 @@ public class SignInActivity extends AppCompatActivity {
                             if(isGuide){
                                 intent.putExtra("isGuide",true);
                                 intent.putExtra("guideId",guideIDEdt.getText().toString());
+                                saveGuideIdToPrefs(guideIDEdt.getText().toString());
+                                saveIsGuideToPrefs(isGuide);
                             }else {
                                 intent.putExtra("isGuide", false);
+                                saveIsGuideToPrefs(false);
                             }
                             editor.apply();
                             startActivity(intent);
@@ -133,5 +144,26 @@ public class SignInActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+    private void saveGuideIdToPrefs(String guideId) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PREF_GUIDE_ID, guideId);
+        editor.apply();
+    }
+    private String getGuideIdFromPrefs() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PREF_GUIDE_ID, "");
+    }
+    private boolean getIsGuideFromPrefs() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(PREF_IS_GUIDE, false);
+    }
+
+    private void saveIsGuideToPrefs(boolean isGuide) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(PREF_IS_GUIDE, isGuide);
+        editor.apply();
     }
 }
