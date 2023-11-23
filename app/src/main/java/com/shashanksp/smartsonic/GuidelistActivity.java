@@ -44,7 +44,7 @@ public class GuidelistActivity extends AppCompatActivity implements GuideAdapter
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(GuidelistActivity.this,SubscriptionActivity.class);
+                Intent i = new Intent(GuidelistActivity.this,ListenActivity.class);
                 startActivity(i);
             }
         });
