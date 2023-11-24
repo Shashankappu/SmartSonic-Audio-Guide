@@ -97,7 +97,7 @@ public class HomeScanActivity extends AppCompatActivity {
                 editor.apply();
                 clearSharedPreferences();
                 // Redirect to the LoginActivity
-                Intent intent = new Intent(HomeScanActivity.this, StartActivity.class);
+                Intent intent = new Intent(HomeScanActivity.this, SignInActivity.class);
                 startActivity(intent);
                 finish();
             }
